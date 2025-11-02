@@ -1,0 +1,23 @@
+{
+  "name": "gointerview",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "cd server && pnpm install && cd ../client && pnpm install",
+    "dev": "concurrently -k -n server,client \"pnpm --filter server dev\" \"pnpm --filter client dev\"",
+    "build": "pnpm --filter server build && pnpm --filter client build",
+    "start": "pnpm --filter server start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "typescript": "^5.6.3"
+  },
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "pnpm": {
+    "packageManager": "pnpm@9.12.0"
+  }
+}
